@@ -1,6 +1,20 @@
 
 # Uploading Large Files to AWS-S3 with Lightning Fast Speed - Parallel Chunk Upload
 
+## Upload API vs Presigned
+
+### Presigned Multipart Upload
+When It’s Easier:
+* Client-Side Uploads: If you want to allow clients (e.g., browsers or mobile apps) to upload files directly to S3 without needing to handle AWS credentials on the client side, presigned URLs are easier to implement.
+* Avoiding AWS Credentials: If you prefer not to expose AWS credentials to clients and want to delegate the upload process to them, presigned URLs offer a secure way to do this.
+
+
+### Multipart Upload API
+When It’s Easier:
+* Server-Side Control: If you want complete control over the upload process, including handling large files, managing parts, and retrying failed uploads, then using the Multipart Upload API directly on the server side might be more straightforward.
+* Server-Based Environments: If you have a backend server or application that can manage AWS credentials securely, implementing the Multipart Upload API is usually easier because you handle the entire process on the server.
+
+
 This project demonstrates two techniques for uploading large files to AWS-S3: one where chunks are created on the frontend and uploaded using the AWS multipart API, and another where chunks are created on the backend and uploaded using the AWS SDK 3 upload parallel technique.
 
 ## Technique 1:
