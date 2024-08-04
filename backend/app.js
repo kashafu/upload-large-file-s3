@@ -9,15 +9,15 @@ const app = express();
 
 // Set up AWS S3 bucket configuration
 const s3 = new S3Client({
-	region: process.env.YOUR_BUCKET_REGION,
+	region: process.env.BUCKET_REGION,
 	credentials: {
-		accessKeyId: process.env.YOUR_ACCESS_KEY,
-		secretAccessKey: process.env.YOUR_SECRET_KEY,
+		accessKeyId: process.env.ACCESS_KEY,
+		secretAccessKey: process.env.SECRET_KEY,
 	},
   useAccelerateEndpoint: true,
 });
 
-const bucketName = process.env.YOUR_BUCKET_NAME;
+const bucketName = process.env.BUCKET_NAME;
 
 // Set up bodyParser to parse incoming requests
 app.use(bodyParser.json({ limit: '50mb' }));
