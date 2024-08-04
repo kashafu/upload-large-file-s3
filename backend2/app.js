@@ -36,7 +36,7 @@ app.post('/upload_parallel', upload.single("file"), (req, res) => {
 	// params for s3 upload
 	const params = {
 		Bucket: bucketName,
-		Key: `${Date.now().toString()}_${file.originalname}`,
+		Key: `${file.originalname}`,
 		Body: file.buffer,
 	}
 
