@@ -8,16 +8,16 @@ const app = express();
 
 // Set up AWS S3 bucket configuration
 const s3 = new AWS.S3({
-  accessKeyId: process.env.YOUR_ACCESS_KEY,
-  secretAccessKey: process.env.YOUR_SECRET_KEY,
-  region: process.env.YOUR_BUCKET_REGION,
+  accessKeyId: process.env.ACCESS_KEY,
+  secretAccessKey: process.env.SECRET_KEY,
+  region: process.env.BUCKET_REGION,
   useAccelerateEndpoint: true,
 });
-const bucketName = process.env.YOUR_BUCKET_NAME;
+const bucketName = process.env.BUCKET_NAME;
 
 // Set up bodyParser to parse incoming requests
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.json({ limit: '90mb' }));
+app.use(bodyParser.urlencoded({ limit: '90mb', extended: true }));
 
 // Set up CORS
 app.use(cors());
@@ -34,6 +34,8 @@ app.post('/initiateUpload', async (req, res) => {
       Bucket: bucketName,
       Key: fileName,
     };
+    console.log("fileName ", fileName);
+
     const upload = await s3.createMultipartUpload(params).promise();
     res.json({ uploadId: upload.UploadId });
   } catch (error) {

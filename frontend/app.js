@@ -8,7 +8,7 @@ let file, fileName, totalChunks, uploadId;
 // Listen for file input change event
 fileInput.addEventListener('change', () => {
   file = fileInput.files[0];
-  fileName = Date.now().toString() + "_" + file.name;
+  fileName = file.name;
   totalChunks = Math.ceil(file.size / CHUNK_SIZE);
   console.log("file ", file, "totalChunks ", totalChunks);
   console.log("fileName ", fileName);
