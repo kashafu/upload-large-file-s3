@@ -88,7 +88,7 @@ app.post('/completeUpload', (req, res) => {
         ETag: part.ETag,
         PartNumber: part.PartNumber
       });
-    });
+     });
 
     s3Params.MultipartUpload = {
       Parts: parts
