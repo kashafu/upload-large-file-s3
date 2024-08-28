@@ -50,7 +50,3 @@ Navigate to the frontend folder.
 Start the server by running `http-server`
 
 Open the provided URL in your web browser.
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
